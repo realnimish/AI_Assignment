@@ -1,0 +1,1 @@
+To solve the 8-queen (Generalised to N-Queen) problem using Uniform Cost Search (UCS)
