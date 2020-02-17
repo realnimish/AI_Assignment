@@ -25,6 +25,7 @@ class state:
         self.visited = list(parent.visited)
         self.unvisited = list(parent.unvisited)
 
+import heapq as hp
 
 def main():
     n = int(raw_input("Enter number of nodes : "))
@@ -41,23 +42,67 @@ def main():
     print 'Cost : ',sol.cost(graph)
 
 def mst(arr,graph):
-    return 1
+
+    def find(par,i):
+        if par[i] == i: return i
+        par[i] = find(par,par[i])
+        return par[i]
+
+    def union(par,rank,x,y):
+        x = find(par,x)
+        y = find(par,y)
+
+        if rank[x] < rank[y]:
+            par[x] = y
+        elif rank[x] > rank[y]:
+            par[y] = x
+        else:
+            par[y] = x
+            rank[x] += 1
+        
+    n = len(arr)
+    cost = 0
+    #par = list(arr)
+    par = [i for i in xrange(n)]
+    rank = [0]*n
+    mat = []
+    for i in xrange(n):
+        for j in xrange(i+1,n):
+            u = arr[i]
+            v = arr[j]
+            mat.append([graph[u][v], i, j])
+    mat.sort()
+    i,e = 0,0
+    while e < n-1 and i < len(mat):
+        w,u,v = mat[i]
+        i += 1
+        x = find(par,u)
+        y = find(par,v)
+
+        if x!=y:
+            e +=1
+            cost += w
+            union(par,rank,x,y)
+    return cost
 
 def solve(n,graph):
     initial = state()
     initial.init(n)
     initial.h = mst( [i for i in xrange(n)] ,graph)
     
-    Q = [ (initial.f(),initial) ]  # Make it priority queue
+    Q = [ (initial.f(),initial) ]
+    hp.heapify(Q)
     solution = None
     
     while Q:
-        f,curState = Q.pop(0)
+        f,curState = hp.heappop(Q)
         if curState.unvisited == []:
             if solution is None:
                 solution = curState
             elif curState.cost(graph) < solution.cost(graph):
                 solution = curState
+        elif solution is not None and curState.cost(graph) > solution.cost(graph):
+            pass
         else:
         
             X = mst(curState.unvisited, graph)
@@ -68,7 +113,7 @@ def solve(n,graph):
                 nextState.visited.append( nextState.unvisited.pop(i) )
                 nextState.g = curState.g + graph[ curState.visited[-1] ][ curState.unvisited[i] ]
                 nextState.h = X
-                Q.append((nextState.f(),nextState))
+                hp.heappush(Q,(nextState.f(),nextState))
     return solution
 
 
