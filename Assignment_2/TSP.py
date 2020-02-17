@@ -25,7 +25,6 @@ class state:
         self.visited = list(parent.visited)
         self.unvisited = list(parent.unvisited)
 
-        
 
 def main():
     n = int(raw_input("Enter number of nodes : "))
@@ -38,13 +37,16 @@ def main():
 
     sol = solve(n,graph)
     print 'Path : ',
-    print '->'.join(map(str,sol.visited))
-    print 'Cost : ',sol.cost()
+    print '->'.join(map(str,sol.visited + [sol.visited[0]]))
+    print 'Cost : ',sol.cost(graph)
+
+def mst(arr,graph):
+    return 1
 
 def solve(n,graph):
     initial = state()
-    initial =  initial.init(n)
-    initial.h = mst( [i for i in xrange(n)] )
+    initial.init(n)
+    initial.h = mst( [i for i in xrange(n)] ,graph)
     
     Q = [ (initial.f(),initial) ]  # Make it priority queue
     solution = None
@@ -58,7 +60,7 @@ def solve(n,graph):
                 solution = curState
         else:
         
-            X = mst(curState.unvisited)
+            X = mst(curState.unvisited, graph)
 
             for i in xrange( len(curState.unvisited) ):
                 nextState = state()
@@ -66,11 +68,11 @@ def solve(n,graph):
                 nextState.visited.append( nextState.unvisited.pop(i) )
                 nextState.g = curState.g + graph[ curState.visited[-1] ][ curState.unvisited[i] ]
                 nextState.h = X
-                Q.push(nextState.f(),nextState)
+                Q.append((nextState.f(),nextState))
     return solution
 
 
-
+# Driver Code
 main()
 
 
