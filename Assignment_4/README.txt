@@ -1,0 +1,1 @@
+The game of sticks using Min/Max tree with Alfa-beta pruning
