@@ -1,0 +1,5 @@
+Program asks for the input N for NxN chessboard. Value of N can range from 4 to 10(inclusive), for other value(s) the program exits.
+
+--> Sample Input
+
+Enter Size in range [4,10] : 8

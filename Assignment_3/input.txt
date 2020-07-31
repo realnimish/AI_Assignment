@@ -1,0 +1,14 @@
+Program first asks for N - the number of students in the first line, M - the number of subjects in the second line & the number of groups to be formed K in the third line (Assumption K<=N). 
+
+This is followed by N lines where each line should contain M space-separated integers denoting the marks(in the interval - [0,100]) obtained by the i-th student.
+
+--> Sample Input
+
+Number of students : 5
+Number of subjects : 3
+Number of groups : 3
+Marks obtained by student 1 :  100 80 93
+Marks obtained by student 2 :  78 60 50
+Marks obtained by student 3 :  97 83 45
+Marks obtained by student 4 :  56 66 67
+Marks obtained by student 5 :  70 70 85

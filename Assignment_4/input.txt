@@ -1,0 +1,13 @@
+*) It is an interactive program where the program first asks to play a new game or exit.
+
+*) If the player choose to play he/she is presented with 3 modes -- 1) Player v/s Player 2) Player v/s AI 3) AI v/s AI.
+
+*) Irrespective of the mode chosen the program asks for the number of sticks N to start the game with.
+
+*) Then the program expects an integer K - The maximum number of sticks one can remove in 1 move (THE PROGRAM IS GENERALISED and hence allows user to choose the maximum limit to be other than 3 too!!)
+
+*) Depending on the game mode chosen the user is prompted to make a move and is informed of the number of sticks left
+
+*) After all the sticks have been removed program displays the winner and goes back to asking for new game or exit.
+
+Note : Due to the interactive nature of the program input&output is shown in the "output.txt" file with a little extra formatting for clarity!

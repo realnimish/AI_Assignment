@@ -1,0 +1,15 @@
+Program first asks for the number of nodes N in the first line followed by N*(N-1)/2 lines asking for the edge cost between each pair of nodes.
+
+--> Sample Input
+
+Enter number of nodes : 5
+Edge Cost of 1-2  : 3
+Edge Cost of 1-3  : 10
+Edge Cost of 1-4  : 4
+Edge Cost of 1-5  : 9
+Edge Cost of 2-3  : 3
+Edge Cost of 2-4  : 7
+Edge Cost of 2-5  : 1
+Edge Cost of 3-4  : 2
+Edge Cost of 3-5  : 100
+Edge Cost of 4-5  : 23

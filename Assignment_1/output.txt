@@ -1,0 +1,19 @@
+Program outputs Tuple form and Matrix form for the corresponding input N.
+
+Tuple form : tuple T of size N where Ti E [0,N) denotes the column where queen is inserted for each i E [0,N) denoting row number
+
+Matrix form : Prints N*N matrix where Q denotes Queen and # denotes empty cell
+
+
+--> Output for the sample input given in "input.txt" file
+
+Tuple Form : <0,4,7,5,2,6,1,3>
+Matrix Form : 
+Q#######
+####Q###
+#######Q
+#####Q##
+##Q#####
+######Q#
+#Q######
+###Q####

@@ -1,0 +1,6 @@
+Program finds the path to be followed by the salesman and its cost.
+
+--> Output for the sample input given in "input.txt" file
+
+Path :  0->3->2->1->4->0
+Cost :  19
